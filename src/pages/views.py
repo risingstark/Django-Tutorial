@@ -12,7 +12,11 @@ def contact_view(request, *args, **kwargs): # *args, *kwargs
     return render(request, "contact.html", {})
 
 def about_view(request, *args, **kwargs): # *args, *kwargs
-    return render(request, "about.html", {})
+    my_context = { "my_name":"sean kim",
+                    "my_number": "01063460625",
+                    "my_friends_list":["David","Daniel","Justine","Tomas"]
+    }
+    return render(request, "about.html", my_context)
 
 def list_view(request, *args, **kwargs): # *args, *kwargs
     return render(request, "list.html", {})
