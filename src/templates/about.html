@@ -7,4 +7,18 @@
         {{ my_name}}, {{my_number}},
          {{my_friends_list }}
     </p>
+
+<ul>
+    <li>item1</li>
+    <li>item2</li>
+</ul>
+<ul>
+    {% for my_friend in my_friends_list %}
+        {% if my_friend == 123 %}
+            <p> {{forloop.counter}} - {{my_friend|add:22}}</p>
+        {% else %}
+            <p> {{forloop.counter}} - {{my_friend}}</p>
+        {% endif %}
+    {% endfor %}
+</ul>
 {% endblock %}

@@ -14,7 +14,7 @@ def contact_view(request, *args, **kwargs): # *args, *kwargs
 def about_view(request, *args, **kwargs): # *args, *kwargs
     my_context = { "my_name":"sean kim",
                     "my_number": "01063460625",
-                    "my_friends_list":["David","Daniel","Justine","Tomas"]
+                    "my_friends_list":["David","Daniel","Justine","Tomas",123]
     }
     return render(request, "about.html", my_context)
 
