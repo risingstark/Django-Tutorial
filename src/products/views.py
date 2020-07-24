@@ -1,12 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.http import Http404
 
 from .forms import ProductForm, RawProductForm
 from .models import Product
+
 # Create your views here.
 # def product_create_view(request):
 
-def dynamic_lookup_view(request, my_id):
-    obj = Product.objects.get(id=1)
+def dynamic_lookup_view(request, id):
+    #obj = Product.objects.get(id=id)
+    obj = get_object_or_404(Product, id=id)
+    # this is simple way to handle excption, page404
+    # try:
+    #     obj = Product.objects.get(id=id)
+    # except Product.DoesNotExist:
+    #     raise Http404
 
     context = {
         "object": obj
