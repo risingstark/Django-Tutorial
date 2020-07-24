@@ -5,6 +5,14 @@ from .models import Product
 # Create your views here.
 # def product_create_view(request):
 
+def dynamic_lookup_view(request, my_id):
+    obj = Product.objects.get(id=1)
+
+    context = {
+        "object": obj
+    }
+    return render(request, "products/product_detail.html",context)
+
 #     my_form = RawProductForm() #default = request.GET
 #     if request.method == "POST":
 #         my_form = RawProductForm(request.POST)
