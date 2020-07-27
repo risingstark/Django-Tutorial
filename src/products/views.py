@@ -25,12 +25,12 @@ def product_delete_view(request,id):
 
 def dynamic_lookup_view(request, id):
     #obj = Product.objects.get(id=id)
-    obj = get_object_or_404(Product, id=id)
+    #obj = get_object_or_404(Product, id=id)
     # this is simple way to handle excption, page404
-    # try:
-    #     obj = Product.objects.get(id=id)
-    # except Product.DoesNotExist:
-    #     raise Http404
+    try:
+        obj = Product.objects.get(id=id)
+    except Product.DoesNotExist:
+        raise Http404
 
     context = {
         "object": obj
