@@ -5,6 +5,14 @@ from .forms import ProductForm, RawProductForm
 from .models import Product
 
 # Create your views here.
+def product_list_view(request):
+    #list all product objects
+    queryset = Product.objects.all()
+    context = {
+        "object_list": queryset
+    }
+    return render(request, "products/product_list.html",context)
+
 def product_delete_view(request,id):
     obj = Product.objects.get(id=id)
     if request.method == "POST":
