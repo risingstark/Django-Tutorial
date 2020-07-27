@@ -10,6 +10,6 @@ class Product(models.Model):
     feature     = models.BooleanField(default=False)
 
     def get_absolute_url(self):
-        return reverse("product-detail", kwargs={"id": self.id})
+        return reverse("products:product-detail", kwargs={"id": self.id})
         # hard coding version of dynamic URL
         # f"/products/{self.id}/"
