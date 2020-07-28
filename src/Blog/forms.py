@@ -1,12 +1,24 @@
 from django import forms
 
-from .models import Blog
+from .models import Article
 
 class BlogForm(forms.ModelForm):
-    title       = forms.CharField(label='', widget=forms.TextInput(attrs={"placeholder":"your title"}))
-    description = forms.Charfield(lable='', widget=forms.TexInput(attrs={"placeholder":"your description"}))
+    title       = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"your title"}))
+    description = forms.CharField(
+                                        required=False,
+                                        widget=forms.Textarea(
+                                        attrs={
+                                                "placeholder":"your description",
+                                                "class":"New-Class-name two",
+                                                "id" : "my-id-for-textarea",
+                                                "rows" :20,
+                                                "cols" :20
+                                        }
+                                    )
+                                )
+
     class Meta:
-        model = Blog
+        model = Article
         fields = [
             'title',
             'description',
