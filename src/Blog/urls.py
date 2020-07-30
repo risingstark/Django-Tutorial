@@ -17,13 +17,16 @@ Including another URLconf
 from django.urls import path
 from Blog.views import (
     article_list_view,
-    article_detail_view
+    article_detail_view,
+    ArticleListView,
+    ArticleDetailView
     )
+
 
 app_name = 'Blog'
 urlpatterns = [
-    path('', article_list_view, name='article-list'),
-    path('<int:id>/', article_detail_view, name='article-detail'),
+    path('', ArticleListView.as_view(), name='article-list'),
+    path('<int:id>/', ArticleDetailView.as_view(), name='article-detail'),
 ]
 
 
