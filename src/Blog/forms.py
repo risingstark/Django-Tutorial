@@ -2,7 +2,7 @@ from django import forms
 
 from .models import Article
 
-class BlogForm(forms.ModelForm):
+class ArticleModelForm(forms.ModelForm):
     title       = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"your title"}))
     description = forms.CharField(
                                         required=False,
