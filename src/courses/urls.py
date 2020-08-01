@@ -23,9 +23,9 @@ from courses.views import (
 app_name = 'courses'
 urlpatterns = [
     #path('', my_fav, name='courses-list'),
-    path('', CourseView.as_view(), name='courses-list'),
+    path('', CourseView.as_view(template_name='contact.html'), name='courses-list'),
     # path('create/', product_create_view , name='product-create'),
-    # path('<int:id>/', product_detail_view, name='product-detail'),
+     path('<int:id>/', CourseView.as_view(), name='course-detail'),
     # path('<int:id>/delete', product_delete_view, name='product-delete'),
 ]
 
