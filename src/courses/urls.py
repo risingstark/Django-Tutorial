@@ -18,15 +18,16 @@ from django.urls import path
 from courses.views import (
         my_fav,
         CourseView,
-        CourseListView
+        CourseListView,
+        CourseCreateView
     )
 
 app_name = 'courses'
 urlpatterns = [
     #path('', my_fav, name='courses-list'),
     path('', CourseListView.as_view(), name='courses-list'),
-    # path('create/', product_create_view , name='product-create'),
-     path('<int:id>/', CourseView.as_view(), name='course-detail'),
+    path('create/', CourseCreateView.as_view() , name='course-create'),
+    path('<int:id>/', CourseView.as_view(), name='course-detail'),
     # path('<int:id>/delete', product_delete_view, name='product-delete'),
 ]
 
