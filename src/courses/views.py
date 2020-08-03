@@ -16,9 +16,11 @@ class CourseCreateView(View):
 
     def  post(self, request, *args, **kwargs):
         form = CourseModelForm(request.POST )
-        context ={"form":form}
         if form.is_valid():
             form.save()
+            # this shows empty input box after creating new course title
+            form = CourseModelForm()
+        context ={"form":form}
         return render(request, self.template_name, context)
 
 class CourseListView(View):

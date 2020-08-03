@@ -8,3 +8,10 @@ class CourseModelForm(forms.ModelForm):
         fields = [
             'title'
         ]
+
+    # field validation form, def clean_<fieldname>
+    def clean_title(self):
+        title = self.cleaned_data.get('title')
+        if title.isdigit():
+            raise forms.ValidationError('this is not valid title')
+        return title
