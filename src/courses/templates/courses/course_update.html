@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <h1>IN courses app:</h1>
+    <ul>
+        <p> {{object.id}}- {{object.title}}</p>
+    </ul>
+
+<form action = '.' method = 'POST'> {% csrf_token  %}
+    {{ form.as_p}}
+    <input type="submit" name="save">
+</form>
+{% endblock %}
